@@ -1,0 +1,10 @@
+/* P4 (PR-MDM-003): матрица согласования изменений справочников. */
+.mdm-mx-steps { margin: 0; padding-left: 18px; font-size: 13px; }
+.mdm-mx-steps li { margin: 2px 0; }
+.mdm-mx-checks { display: flex; flex-wrap: wrap; gap: 8px 14px; }
+.mdm-mx-step-list { display: flex; flex-direction: column; gap: 8px; }
+.mdm-mx-step { display: grid; grid-template-columns: 24px minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.2fr) auto; gap: 8px; align-items: center; }
+@media (max-width: 640px) {
+  .mdm-mx-step { grid-template-columns: 24px minmax(0, 1fr) auto; }
+  .mdm-mx-step > :nth-child(3), .mdm-mx-step > :nth-child(4) { grid-column: 2 / 4; }
+}

@@ -1,0 +1,15 @@
+/* P4 (PR-TRV-015): бронирование билетов и гостиниц на карточке командировки. */
+.trv-bk-actions { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.trv-bk-total { padding: 12px 14px; grid-template-columns: 1fr auto; border-top: 1px solid var(--border); margin: 0; }
+.trv-bk-offers { display: flex; flex-direction: column; gap: 8px; max-height: 52vh; overflow-y: auto; }
+.trv-bk-offer { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); }
+.trv-bk-offer.selected { border-color: var(--brand-500); background: var(--brand-50); }
+.trv-bk-offer.blocked { opacity: 0.65; }
+.trv-bk-offer-main { flex: 1; min-width: 0; }
+.trv-bk-offer-title { font-weight: 600; overflow-wrap: anywhere; }
+.trv-bk-badges { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 4px; }
+.trv-bk-offer-price { text-align: right; white-space: nowrap; }
+@media (max-width: 600px) {
+  .trv-bk-offer { flex-wrap: wrap; }
+  .trv-bk-offer-price { text-align: left; width: 100%; white-space: normal; }
+}

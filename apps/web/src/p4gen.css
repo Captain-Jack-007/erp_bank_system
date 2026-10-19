@@ -1,0 +1,71 @@
+/* P4-GEN: справка, конструктор интеграций, AD, регламентные окна, Service Desk, баннеры режимов. */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* Баннеры режимов работы (над содержимым страницы) */
+.p4-banners { display: flex; flex-direction: column; gap: 0; }
+.p4-banner { display: flex; align-items: flex-start; gap: 8px; padding: 8px 20px; font-size: 13px; line-height: 1.4; border-bottom: 1px solid var(--border); overflow-wrap: anywhere; }
+.p4-banner svg { flex: none; margin-top: 2px; }
+.p4-banner.danger { background: var(--danger-bg); color: var(--danger); }
+.p4-banner.warn { background: var(--warn-bg); color: var(--warn); }
+.p4-banner.info { background: var(--info-bg); color: var(--info); }
+.p4-banner-sub { opacity: 0.85; }
+@media (max-width: 640px) { .p4-banner { padding: 8px 12px; } }
+
+/* Справка */
+.p4-help { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 16px; align-items: start; }
+.p4-help-side { display: flex; flex-direction: column; gap: 10px; position: sticky; top: 12px; max-height: calc(100vh - 120px); overflow: auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; }
+.p4-help-main { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.p4-help-toclink { display: none; }
+.p4-help-group { margin-top: 6px; }
+.p4-help-group-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-3); margin: 6px 0 4px; }
+.p4-help-link { display: flex; justify-content: space-between; gap: 6px; padding: 5px 8px; border-radius: var(--radius-sm); color: var(--text); text-decoration: none; font-size: 13px; }
+.p4-help-link:hover { background: var(--surface-2); }
+.p4-help-link.on { background: var(--brand-50); color: var(--brand-700); font-weight: 600; }
+.p4-help-noacc { font-size: 11px; color: var(--text-3); white-space: nowrap; }
+.p4-help-article { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; min-width: 0; overflow-wrap: anywhere; }
+.p4-help-article h2 { margin: 2px 0 0; font-size: 20px; }
+.p4-help-article h3 { margin: 18px 0 6px; font-size: 15px; display: flex; align-items: center; gap: 6px; }
+.p4-help-article p, .p4-help-article li { line-height: 1.55; }
+.p4-help-article ol, .p4-help-article ul { padding-left: 22px; margin: 4px 0; }
+.p4-help-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
+.p4-help-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.p4-help-tip { background: var(--info-bg); border-radius: var(--radius-sm); padding: 2px 12px 8px; margin-top: 14px; }
+.p4-help-roles { display: flex; flex-direction: column; gap: 6px; }
+.p4-help-role-row { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; font-size: 13px; }
+.p4-help-related { display: flex; flex-wrap: wrap; gap: 8px; }
+.p4-help-related a { padding: 4px 10px; border: 1px solid var(--border); border-radius: 999px; font-size: 13px; text-decoration: none; color: var(--brand-700); background: var(--surface); }
+.p4-help-hits { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+@media (max-width: 900px) {
+  .p4-help { grid-template-columns: minmax(0, 1fr); }
+  .p4-help-side { position: static; max-height: none; }
+  .p4-help.has-article .p4-help-side { display: none; }
+  .p4-help.has-article .p4-help-toclink { display: inline-block; }
+  .p4-help-article { padding: 14px; }
+}
+
+/* Конструктор интеграций */
+.p4-designer { display: flex; flex-direction: column; gap: 10px; }
+.p4-sub { margin: 10px 0 2px; font-size: 14px; }
+.p4-op { border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; display: flex; flex-direction: column; gap: 10px; background: var(--surface-2); }
+.p4-fields { display: flex; flex-direction: column; gap: 6px; }
+.p4-fields-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.p4-field-row { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr) minmax(0, 1.4fr) auto auto; gap: 6px; align-items: center; }
+.p4-field-row.bad .input { border-color: var(--danger); }
+.field-error { color: var(--danger); }
+@media (max-width: 640px) { .p4-field-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+
+/* AD / формы */
+.p4-diff { list-style: none; padding: 0; margin: 0; font-size: 12px; display: flex; flex-direction: column; gap: 2px; overflow-wrap: anywhere; }
+.p4-checks { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 4px 12px; max-height: 220px; overflow: auto; }
+.p4-help-side .input { flex: none; min-height: 36px; }
+/* P4-GEN: кнопка справки «?» в верхней панели — компактная шапка на узких экранах */
+@media (max-width: 480px) {
+  .shell .topbar { gap: 4px; }
+  .shell .topbar > .btn-sm, .shell .topbar .bell-btn { padding-left: 5px; padding-right: 5px; }
+  .shell .topbar-search { flex: 0 0 36px; }
+  .shell .topbar .lang-switch { flex: none; }
+}
+/* P4-GEN: вкладки «Учётная запись банка / Доменная (AD)» на экране входа не расширяют форму на 390 px */
+.login-box .login-form { min-width: 0; max-width: 100%; }
+.login-box .login-form > .tabs { min-width: 0; max-width: 100%; overflow: visible; }
+.login-box .login-form > .tabs .tab { flex: 1 1 0; min-width: 0; white-space: normal; text-align: center; line-height: 1.25; }

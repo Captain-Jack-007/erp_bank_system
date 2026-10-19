@@ -1,0 +1,69 @@
+/* Модуль «Автопарк» (ТЗ 4.2.6) — локальные стили. Цвета — только CSS-переменные платформы. */
+.flt-nav { padding: 0; }
+.flt-nav .tabs { border-bottom: 0; }
+.plate { display: inline-block; font-family: ui-monospace, Menlo, monospace; font-weight: 700; font-size: 12.5px; border: 1.5px solid var(--text); border-radius: 5px; padding: 1px 6px; white-space: nowrap; background: var(--surface); }
+.flt-due { font-variant-numeric: tabular-nums; font-weight: 600; }
+.flt-due.warn { color: var(--warn); }
+.flt-due.bad { color: var(--danger); }
+.flt-period { display: flex; gap: 8px; flex-wrap: wrap; }
+.flt-period .select { width: auto; min-width: 120px; }
+.flt-stack { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.flt-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.flt-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.flt-photo { width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius-sm); background: var(--surface-2); border: 1px dashed var(--border-strong); display: flex; align-items: center; justify-content: center; color: var(--text-3); overflow: hidden; }
+.flt-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.flt-qr { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.flt-qr svg { border: 1px solid var(--border); border-radius: var(--radius-sm); background: #fff; }
+.flt-meter { margin-top: 10px; }
+.flt-meter-head { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; color: var(--text-2); margin-bottom: 4px; }
+.flt-meter-head b { color: var(--text); font-variant-numeric: tabular-nums; }
+.flt-over { color: var(--danger); font-weight: 600; }
+.flt-save { color: var(--ok); font-weight: 600; }
+.flt-lines { width: 100%; border-collapse: collapse; }
+.flt-lines td, .flt-lines th { padding: 4px 6px 4px 0; vertical-align: top; text-align: left; font-size: 12.5px; color: var(--text-2); font-weight: 600; }
+.flt-lines td .input { min-width: 0; width: 100%; }
+.flt-lines .w-name { width: 46%; }
+.flt-lines .w-num { width: 16%; }
+.flt-line-x { padding-top: 2px; }
+.flt-check { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 12px; margin: 4px 0 8px; }
+.flt-calc { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; font-size: 12.5px; margin: 6px 0 10px; }
+.flt-calc div { display: flex; flex-direction: column; gap: 2px; }
+.flt-calc span { color: var(--text-3); }
+.flt-calc b { font-variant-numeric: tabular-nums; }
+.flt-sig { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.flt-sig:last-child { border-bottom: 0; }
+.flt-sig-role { min-width: 160px; color: var(--text-2); font-size: 13px; }
+.flt-bars { display: flex; flex-direction: column; gap: 10px; }
+.flt-bar { display: grid; grid-template-columns: minmax(90px, 160px) 1fr auto; gap: 10px; align-items: center; font-size: 13px; }
+.flt-bar-track { height: 10px; border-radius: 999px; background: var(--muted-bg); overflow: hidden; }
+.flt-bar-fill { height: 100%; border-radius: 999px; background: var(--brand-600); }
+.flt-bar-val { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.flt-list-item { display: flex; gap: 10px; align-items: center; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid var(--border); }
+.flt-list-item:last-child { border-bottom: 0; }
+.flt-list-item .flt-li-main { min-width: 0; }
+.flt-list-item .flt-li-sub { font-size: 12px; color: var(--text-3); }
+.flt-hint { font-size: 12.5px; color: var(--text-3); margin: 0 0 10px; }
+.flt-warnbox { border-left: 3px solid var(--warn); padding: 10px 14px; background: var(--warn-bg); border-radius: var(--radius-sm); font-size: 13px; margin-bottom: 10px; }
+.flt-dangerbox { border-left: 3px solid var(--danger); padding: 10px 14px; background: var(--danger-bg); border-radius: var(--radius-sm); font-size: 13px; margin-bottom: 10px; }
+.flt-my { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.flt-totals td { font-weight: 700; }
+.flt-tablebar { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.flt-tablebar .muted { font-size: 12.5px; }
+@media (max-width: 1100px) {
+  .flt-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .flt-my { grid-template-columns: 1fr; }
+  .flt-calc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .flt-check { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .flt-sig-role { min-width: 0; width: 100%; }
+}
+@media (max-width: 520px) {
+  .flt-kpis { grid-template-columns: 1fr; }
+  .flt-bar { grid-template-columns: 90px 1fr auto; }
+  .flt-period { width: 100%; }
+  .flt-period .select { flex: 1; }
+}
+/* Длинные формы автопарка: модальное окно шире и прокручивается внутри (маркер .flt-mk в форме). */
+.modal:has(.flt-mk), .modal:has(.flt-lines) { max-width: 720px; max-height: calc(100vh - 32px); display: flex; flex-direction: column; }
+.modal:has(.flt-mk) .modal-body, .modal:has(.flt-lines) .modal-body { overflow-y: auto; min-height: 0; }

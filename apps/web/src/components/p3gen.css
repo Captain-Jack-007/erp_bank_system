@@ -1,0 +1,10 @@
+/* P3-GEN: смена пароля, срок пароля в карточке пользователя, пересмотр прав, тост ошибки */
+.pwd-change { display: flex; flex-direction: column; gap: 12px; }
+.pwd-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-2); }
+.review-signoff { display: flex; flex-direction: column; gap: 12px; padding: 0 14px 14px; }
+.review-signoff .form-grid { align-items: end; }
+.toast.toast-error { background: var(--danger); max-width: min(560px, calc(100vw - 32px)); }
+.session-ended { margin: 0; }
+@media (max-width: 480px) {
+  .topbar .pwd-change-btn { display: none; }
+}

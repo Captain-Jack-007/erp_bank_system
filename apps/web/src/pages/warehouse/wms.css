@@ -1,0 +1,45 @@
+/* P2-WMS: общие стили модулей «Склад», «Основные средства», «Терминалы». */
+.wms-pad { padding: 16px 18px; display: flex; flex-direction: column; gap: 16px; }
+.wms-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.wms-row.end { justify-content: flex-end; }
+.wms-split { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 16px; }
+.wms-split > * { min-width: 0; }
+.wms-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; }
+.wms-form-grid > * { min-width: 0; }
+.wms-form-grid .wide { grid-column: 1 / -1; }
+.wms-lines { width: 100%; border-collapse: collapse; font-size: 13px; }
+.wms-lines th { text-align: left; color: var(--text-3); font-weight: 600; padding: 6px 6px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.wms-lines td { padding: 6px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.wms-lines td .input, .wms-lines td .select { width: 100%; min-width: 90px; }
+.wms-lines .num { text-align: right; white-space: nowrap; }
+.wms-lines-wrap { overflow-x: auto; }
+.wms-note { font-size: 12.5px; color: var(--text-3); }
+.wms-warn { background: var(--warn-bg, #fff7e6); border: 1px solid var(--warn, #d48806); color: var(--text); border-radius: 8px; padding: 10px 12px; font-size: 13px; }
+.wms-danger { background: var(--danger-bg, #fff1f0); border: 1px solid var(--danger); border-radius: 8px; padding: 10px 12px; font-size: 13px; }
+.wms-ok { background: var(--brand-50); border: 1px solid var(--brand-500); border-radius: 8px; padding: 10px 12px; font-size: 13px; }
+.wms-sigs { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.wms-sig { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+.wms-sig.done { border-color: var(--brand-500); background: var(--brand-50); }
+.wms-sig b { font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.02em; }
+.wms-entries { margin: 4px 0 0; padding: 0; list-style: none; font-size: 12px; color: var(--text-2); }
+.wms-entries li { white-space: nowrap; }
+.wms-barcode { display: block; max-width: 100%; height: auto; }
+.wms-labels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm; padding: 8mm; background: #fff; width: 794px; box-sizing: border-box; }
+.wms-label { border: 1px dashed #999; border-radius: 4px; padding: 3mm; display: grid; grid-template-columns: 1fr auto; gap: 2mm; align-items: center; color: #000; font-size: 10px; break-inside: avoid; }
+.wms-label-title { font-weight: 700; font-size: 11px; line-height: 1.2; }
+.wms-label-sub { color: #333; }
+.wms-label .wms-barcode { grid-column: 1 / -1; }
+.wms-scan { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.wms-scan .input { flex: 1; min-width: 180px; }
+.wms-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.wms-kpi-foot { font-size: 12px; color: var(--text-3); }
+.wms-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; }
+.wms-qr { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+@media (max-width: 760px) {
+  .wms-split { grid-template-columns: 1fr; }
+  .wms-form-grid { grid-template-columns: 1fr; }
+  .wms-pad { padding: 12px; }
+}
+@media print {
+  .wms-labels { width: auto; padding: 0; }
+}

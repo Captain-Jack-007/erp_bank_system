@@ -1,0 +1,87 @@
+// Проверка транслитерации узбекской латиницы в кириллицу: tsx packages/shared/scripts/translit.test.ts
+import { toCyrillic } from '../src/translit';
+
+const cases: [string, string][] = [
+  ["O‘zbekiston", 'Ўзбекистон'],
+  ["oʻqituvchi", 'ўқитувчи'],
+  ["o'zgartirish", 'ўзгартириш'],
+  ["G‘aznachilik", 'Ғазначилик'],
+  ["bo‘lim boshlig‘i", 'бўлим бошлиғи'],
+  ['Shartnoma', 'Шартнома'],
+  ['choraklik hisobot', 'чораклик ҳисобот'],
+  ['yo‘l varaqasi', 'йўл варақаси'],
+  ['yo‘q', 'йўқ'],
+  ['Yozuvlar', 'Ёзувлар'],
+  ['yuridik shaxs', 'юридик шахс'],
+  ['Yangi ariza', 'Янги ариза'],
+  ['yetkazib beruvchi', 'етказиб берувчи'],
+  ['elektron hujjat', 'электрон ҳужжат'],
+  ['Eksport', 'Экспорт'],
+  ['aeroport', 'аэропорт'],
+  ["ma'lumotnoma", 'маълумотнома'],
+  ['Maʼlumotlar', 'Маълумотлар'],
+  ["Ta'til", 'Таътил'],
+  ["sun'iy intellekt", 'сунъий интеллект'],
+  ['operatsiya', 'операция'],
+  ['litsenziya', 'лицензия'],
+  ['protsent', 'процент'],
+  ['funksiya', 'функция'],
+  ['tranzaksiyalar', 'транзакциялар'],
+  ['ketsa', 'кетса'],
+  ['qarz', 'қарз'],
+  ['xarajat', 'харажат'],
+  ['hisob-faktura', 'ҳисоб-фактура'],
+  ['Byudjet moddalari', 'Бюджет моддалари'],
+  ['kelishuv', 'келишув'],
+  ['tong', 'тонг'],
+  ['Mingta', 'Мингта'],
+  ['sentabr', 'сентябрь'],
+  ['oktabrda', 'октябрда'],
+  ['kompyuterlar', 'компьютерлар'],
+  ['obyekt', 'объект'],
+  ['koeffitsient', 'коэффициент'],
+  ['XB-ERP tizimi', 'XB-ERP тизими'],
+  ['MHXS 9 bo‘yicha', 'МҲХС 9 бўйича'],
+  ['FTP egri chizig‘i', 'FTP эгри чизиғи'],
+  ['CSV fayl', 'CSV файл'],
+  ['STIR 9 ta raqam', 'СТИР 9 та рақам'],
+  ['STIR: 301234567', 'СТИР: 301234567'],
+  ['YaTT', 'ЯТТ'],
+  ['QQSsiz summa', 'ҚҚСсиз сумма'],
+  ["Pul mablag'lari va MBdagi qoldiqlar", 'Пул маблағлари ва МБдаги қолдиқлар'],
+  ['USDdan', 'USDдан'],
+  ['2026-yil III chorak', '2026-йил III чорак'],
+  ['Active Directory orqali kirish', 'Active Directory орқали кириш'],
+  ['E-IMZO imzosi', 'E-IMZO имзоси'],
+  ['keyingi oyning {d}-sanasigacha', 'кейинги ойнинг {d}-санасигача'],
+  ['Hisoblandi: {v}', 'Ҳисобланди: {v}'],
+  ['n.karimova@example.uz', 'n.karimova@example.uz'],
+  ['SLA buzilishi (POS)', 'SLA бузилиши (POS)'],
+  ['«Xalq banki» ATB', '«Халқ банки» АТБ'],
+  ['AT departamenti', 'АТ департаменти'],
+  ['TXKga yuborish', 'ТХКга юбориш'],
+  ['JShDS (ushlab qolish)', 'ЖШДС (ушлаб қолиш)'],
+  ['Saqlash', 'Сақлаш'],
+  ['SHARTNOMA', 'ШАРТНОМА'],
+  ['Qidiruv…', 'Қидирув…'],
+  ['IFRS 9 / u6 / A4', 'IFRS 9 / u6 / A4'],
+  ['naqd pul', 'нақд пул'],
+  ['Is\'hoq', 'Исҳоқ'],
+  ['Fayl hajmi 5 MB dan oshmasin', 'Файл ҳажми 5 МБ дан ошмасин'],
+  ["Parol va 2FA'siz kirish", "Пароль ва 2FA'сиз кириш"],
+  ['OneID (id.egov.uz) orqali kirish', 'OneID (id.egov.uz) орқали кириш'],
+  ['cookie Secure/HttpOnly/SameSite', 'cookie Secure/HttpOnly/SameSite'],
+  ['AD/LDAP serverida', 'AD/LDAP серверида'],
+  ['l / kVt·soat', 'л / кВт·соат'],
+];
+
+let fail = 0;
+for (const [lat, exp] of cases) {
+  const got = toCyrillic(lat);
+  if (got !== exp) {
+    fail++;
+    console.log(`FAIL  ${lat}  →  ${got}   (expected ${exp})`);
+  }
+}
+console.log(`${cases.length - fail}/${cases.length} PASS`);
+process.exit(fail ? 1 : 0);

@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "XB-ERP",
+    "slug": "xb-erp",
+    "scheme": "xberp",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "uz.xbank.erp.demo"
+    },
+    "android": {
+      "package": "uz.xbank.erp.demo",
+      "edgeToEdgeEnabled": true
+    },
+    "plugins": ["expo-router"],
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}

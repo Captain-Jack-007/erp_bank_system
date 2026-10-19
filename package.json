@@ -1,0 +1,19 @@
+{
+  "name": "xb-erp",
+  "private": true,
+  "version": "0.1.0",
+  "description": "XB-ERP — корпоративная информационная система АКБ «Народный банк». Frontend (web + mobile) на mock-данных.",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "web": "npm run dev -w @xb/web",
+    "web:build": "npm run build -w @xb/web",
+    "mobile": "npm run start -w @xb/mobile",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

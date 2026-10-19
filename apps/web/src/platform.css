@@ -1,0 +1,109 @@
+/* Платформенные экраны ядра (P1-ORG): вход и 2FA, роли и права, пользователи, MDM, журнал аудита. */
+.doc-num { font-weight: 600; color: var(--brand-700); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.sub { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+.badges { display: flex; gap: 4px; flex-wrap: wrap; }
+.banner { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 10px 14px; border-radius: var(--radius); font-size: 13px; background: var(--info-bg); color: var(--info); }
+.banner.info { background: var(--info-bg); color: var(--info); }
+.banner.warn { background: var(--warn-bg); color: var(--warn); }
+.banner.danger { background: var(--danger-bg); color: var(--danger); }
+.cat-list { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+.cat-list li { line-height: 1.4; }
+
+/* ---------- Вход ---------- */
+.login-form { display: flex; flex-direction: column; gap: 12px; }
+.pwd-wrap { position: relative; }
+.pwd-wrap .input { padding-right: 40px; }
+.pwd-eye { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); border: 0; background: none; color: var(--text-3); cursor: pointer; width: 30px; height: 30px; border-radius: 6px; font-size: 14px; }
+.pwd-eye:hover { background: var(--surface-2); }
+.login-error { background: var(--danger-bg); color: var(--danger); border-radius: 8px; padding: 9px 12px; font-size: 13px; }
+.demo-hint { display: flex; gap: 8px; align-items: flex-start; background: var(--warn-bg); color: var(--warn); border-radius: 8px; padding: 8px 12px; font-size: 12.5px; }
+.demo-hint svg { flex: none; margin-top: 2px; }
+.demo-hint b { color: var(--text); letter-spacing: 0.5px; }
+.oneid-mark { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; background: #1d4ed8; color: #fff; font-size: 11px; font-weight: 800; flex: none; }
+.oneid-banner { display: flex; gap: 12px; align-items: center; background: #eef3ff; color: #1e3a8a; border-radius: 10px; padding: 12px 14px; }
+.oneid-banner .oneid-mark { width: 34px; height: 34px; font-size: 14px; }
+.login-demo { display: flex; flex-direction: column; gap: 10px; border-top: 1px dashed var(--border-strong); padding-top: 14px; }
+.login-demo-head { display: flex; flex-direction: column; gap: 2px; }
+.login-demo .user-list { max-height: 260px; overflow-y: auto; padding-right: 2px; }
+.login-demo .user-option { padding: 7px 10px; }
+.login-demo .user-option .avatar { width: 30px; height: 30px; font-size: 12px; }
+.otp-head { display: flex; gap: 12px; align-items: center; }
+.otp-step-badge { background: var(--brand-50); color: var(--brand-700); border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 700; }
+.otp-input { font-size: 20px; letter-spacing: 6px; text-align: center; height: 44px; font-variant-numeric: tabular-nums; }
+.stepup { display: flex; flex-direction: column; gap: 12px; }
+.stepup-action { background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-weight: 600; }
+
+/* ---------- Нет доступа ---------- */
+.no-access { max-width: 520px; margin: 60px auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.no-access-icon { font-size: 44px; font-weight: 800; color: var(--danger); letter-spacing: -1px; }
+.no-access h1 { font-size: 22px; }
+
+/* ---------- Фильтры ---------- */
+.date-range, .as-of { display: inline-flex; align-items: center; gap: 6px; }
+.toolbar .date-range .input, .toolbar .as-of .input { width: 150px; }
+
+/* ---------- Права ---------- */
+.lvl-chip { display: inline-block; font-size: 11.5px; font-weight: 600; border-radius: 6px; padding: 2px 7px; white-space: nowrap; }
+.lvl-none { background: var(--muted-bg); color: var(--text-3); }
+.lvl-view { background: var(--info-bg); color: var(--info); }
+.lvl-edit { background: var(--ok-bg); color: var(--ok); }
+.lvl-approve { background: var(--warn-bg); color: var(--warn); }
+.lvl-admin { background: var(--danger-bg); color: var(--danger); }
+.lvl-legend { display: flex; gap: 6px; flex-wrap: wrap; }
+.matrix-wrap { max-height: 70vh; }
+.table.matrix { border-collapse: separate; border-spacing: 0; }
+.table.matrix th, .table.matrix td { padding: 4px 6px; }
+.matrix .matrix-role { position: sticky; left: 0; background: var(--surface); z-index: 2; white-space: nowrap; min-width: 190px; font-size: 12.5px; text-align: left; box-shadow: 1px 0 0 var(--border); }
+.matrix thead th { position: sticky; top: 0; background: var(--surface-2); z-index: 1; }
+.matrix thead .matrix-role { z-index: 3; background: var(--surface-2); }
+.matrix-col { min-width: 104px; font-size: 11.5px; font-weight: 600; white-space: normal; vertical-align: bottom; line-height: 1.25; }
+.matrix-cell .select.lvl-select { height: 28px; font-size: 11.5px; padding: 0 4px; border-radius: 6px; font-weight: 600; min-width: 96px; }
+.select.lvl-none { border-color: var(--border); color: var(--text-3); background: #fff; }
+.select.lvl-view, .select.lvl-edit, .select.lvl-approve, .select.lvl-admin { border-color: transparent; }
+.roles-foot { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; padding: 16px; border-top: 1px solid var(--border); font-size: 13px; }
+
+/* ---------- Пользователи / формы ---------- */
+.check-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 14px; }
+.drawer-actions { display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; padding-top: 6px; }
+.switch-list { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+.switch-row { display: flex; align-items: center; gap: 10px; font-size: 13.5px; cursor: pointer; }
+.sec-notes { margin: 14px 0 0; padding-left: 18px; color: var(--text-2); font-size: 12.5px; display: flex; flex-direction: column; gap: 4px; }
+.card-body .form-grid + .switch-list { margin-top: 16px; }
+
+/* ---------- История изменений ---------- */
+.field-history { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.field-history li { border-left: 2px solid var(--border); padding-left: 12px; display: flex; flex-direction: column; gap: 6px; }
+.fh-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 13px; }
+.table.changes-table { font-size: 12.5px; border: 1px solid var(--border); border-radius: 8px; }
+.table.changes-table th, .table.changes-table td { padding: 5px 9px; }
+.change-field { font-weight: 600; white-space: nowrap; }
+.change-from { color: var(--danger); text-decoration: line-through; text-decoration-color: rgba(180, 35, 24, 0.35); word-break: break-word; }
+.change-to { color: var(--ok); word-break: break-word; }
+
+/* ---------- MDM ---------- */
+.tree-cell { display: flex; align-items: center; gap: 6px; min-width: 260px; }
+.tree-toggle { width: 22px; height: 22px; border: 0; background: none; border-radius: 5px; cursor: pointer; display: grid; place-items: center; color: var(--text-2); flex: none; }
+.tree-toggle:hover { background: var(--brand-50); }
+.tree-toggle svg { transition: transform 0.12s; }
+.tree-leaf { width: 22px; flex: none; }
+.dq-box { border: 1px solid #f1c4bf; background: var(--danger-bg); border-radius: 10px; padding: 10px 14px; font-size: 13px; }
+.dq-title { display: flex; align-items: center; gap: 6px; font-weight: 650; color: var(--danger); margin-bottom: 4px; }
+.dq-box ul { margin: 0; padding-left: 18px; }
+.dq-box li.warning { color: var(--warn); }
+.dq-box li.error { color: var(--danger); }
+.dq-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; padding: 16px; border-bottom: 1px solid var(--border); font-size: 13px; }
+.expense-grid, .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; padding: 14px; }
+.article-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+.article-list li { display: flex; justify-content: space-between; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+.article-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+.attach-chip { display: inline-flex; align-items: center; gap: 6px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px; font-size: 12.5px; }
+
+@media (max-width: 860px) {
+  .roles-foot, .dq-summary, .check-grid { grid-template-columns: 1fr; }
+  .matrix .matrix-role { min-width: 130px; }
+  .toolbar .date-range, .toolbar .as-of { width: 100%; }
+  .toolbar .date-range .input, .toolbar .as-of .input { flex: 1; width: auto; }
+  .expense-grid, .catalog-grid { grid-template-columns: 1fr; padding: 10px; }
+  .tree-cell { min-width: 200px; }
+  .login-panel { padding: 20px 16px; }
+}
