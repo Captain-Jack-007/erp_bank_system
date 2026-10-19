@@ -3,5 +3,5 @@
   "framework": null,
   "installCommand": "npm install --workspace @xb/web --include-workspace-root",
   "buildCommand": "npm run build:vite -w @xb/web",
-  "outputDirectory": "apps/web/dist"
+  "outputDirectory": "dist"
 }

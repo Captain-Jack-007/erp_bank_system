@@ -9,4 +9,6 @@ export default defineConfig({
   plugins: [react()],
   define: { __XB_MODE__: JSON.stringify(mode) },
   server: { port: 5173, open: true },
+  // Сборка в корневой dist/ — хостинги (Vercel и др.) по умолчанию ищут её там
+  build: { outDir: '../../dist', emptyOutDir: true, chunkSizeWarningLimit: 5000 },
 });
