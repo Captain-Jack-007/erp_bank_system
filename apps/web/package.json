@@ -8,7 +8,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "build:vite": "vite build"
+    "build:vite": "vite build && node -e \"const fs=require('fs');fs.rmSync('../../dist',{recursive:true,force:true});fs.cpSync('dist','../../dist',{recursive:true})\""
   },
   "dependencies": {
     "@xb/shared": "*",
